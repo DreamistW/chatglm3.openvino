@@ -1,14 +1,11 @@
-import os
 import gradio as gr
 import torch
 import argparse
 from threading import Thread
 
-from typing import Union, Annotated
+from typing import Union
 from pathlib import Path
-from peft import AutoPeftModelForCausalLM, PeftModelForCausalLM
 from transformers import (
-    AutoModelForCausalLM,
     AutoTokenizer,
     PreTrainedModel,
     PreTrainedTokenizer,
@@ -45,7 +42,7 @@ parser.add_argument('-d',
 args = parser.parse_args()
 model_dir = args.model_path
 
-ModelType = Union[PreTrainedModel, PeftModelForCausalLM]
+ModelType = Union[PreTrainedModel, OVModelForCausalLM]
 TokenizerType = Union[PreTrainedTokenizer, PreTrainedTokenizerFast]
 
 def _resolve_path(path: Union[str, Path]) -> Path:
