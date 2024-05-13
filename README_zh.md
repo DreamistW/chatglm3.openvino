@@ -67,8 +67,14 @@ python3 convert.py --model_id THUDM/chatglm3-6b --precision int4 --output {your_
 
 ## 3. 运行流式聊天机器人
 
+命令行对话：
 ```
 python3 chat.py --model_path {your_path}/chatglm3-6b-ov --max_sequence_length 4096 --device CPU
+```
+
+网页版对话（基于Gradio）：
+```
+python3 web_demo.py --model_path {your_path}/chatglm3-6b --max_sequence_length 4096 --device CPU
 ```
 
 ### 可以选择的参数
